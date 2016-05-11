@@ -6,6 +6,7 @@ RUN apk --update add lighttpd && \
     rm -rf /var/www/localhost/htdocs && cd /var/www/localhost/ && \
     git clone --depth=1 https://github.com/jbt/markdown-editor htdocs && \
     rm -rf /var/www/localhost/htdocs/.git && \
-    apk del build-dependencies
+    apk del build-dependencies && \
+    rm -rf /var/cache/apk/*
 
 CMD ["lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]
